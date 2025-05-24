@@ -8,6 +8,8 @@ public class PracticeInterview {
         rev_String();   //rev a string
         palindrome_of_num();
         palindrime_of_String();
+        rev_array();
+
 
         swap_WAY1();  //swapping techniques
         swap_WAY2();
@@ -24,6 +26,7 @@ public class PracticeInterview {
         case_count();
         Count_vovels_in_String();
         Sum_Count_Even_or_Odd_Numbers_in_Array();
+        sum_of_array();
 
         min_max();
         Second_largest_element();
@@ -34,12 +37,17 @@ public class PracticeInterview {
 
         prime_or_not();
         generating_primenum();
-        isPrime();
+       // isPrime();
 
         case_convertion();
         missing_numbers();  //NEED TO WRITE CODE
-        
-        
+        remove_duplicate_to_fing_min_max();
+        Sq_root();
+        fibnocci();
+        krishnamoorthi_number();
+        perfect_number();
+        amstrong_num();
+
         // recursion & sum of num
         // infy array swap
     }
@@ -103,6 +111,15 @@ public class PracticeInterview {
        if(name.equals(rev)) System.out.println("string is pali");
         else System.out.println("string is not pali");
         System.out.println("\n -----------------------");
+    }
+
+    public static void rev_array() {
+        int num[]={1,2,3,4,5};
+       
+        for(int i=num.length-1; i>=0; i--){
+            System.out.print (num[i]);
+        }
+        
     }
 
 
@@ -290,6 +307,17 @@ public class PracticeInterview {
 
     }
 
+    public static void sum_of_array() {
+        int arr[]={1,2,3,4,5};
+        int sum=arr[0];
+        for(int i=1; i<arr.length; i++){
+            sum+=arr[i];
+        }
+        System.out.println("sum_of_array "+sum);
+                System.out.println("\n -----------------------");
+
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -441,7 +469,7 @@ public class PracticeInterview {
 
     }
 
-    public static void isPrime() {
+    /*public static void isPrime() {
         int num=25;
         for(int i=2; i<num; i++){  /// this technique is a failure
             if(num%i==0){
@@ -456,7 +484,7 @@ public class PracticeInterview {
 
         System.out.println("\n -----------------------");
 
-    }
+    }*/
 
     public static void generating_primenum() {
         int start=2;
@@ -517,9 +545,110 @@ public class PracticeInterview {
         for(int num:arr){
             sum+=num;
         }
-        int miss_val=tot_sum-sum;
-        System.out.println("MISSING NUM: "+ Math.abs(miss_val));
+        int miss_val=sum-tot_sum;
+       System.out.println("missing val "+miss_val);
+                System.out.println("\n -----------------------");
+
+
+    }
+    public static void remove_duplicate_to_fing_min_max() {
+        int arr[]={1,1,2,2,5,4,6,3,9,5};
+        int unique[]=Arrays.stream(arr).distinct().sorted().toArray();
+        System.out.println(Arrays.toString(unique));
+
+        int max=unique[0];
+        for(int i=0; i<unique.length; i++){
+            if(unique[i]>max){
+                max=unique[i];
+            }
+        }
+        System.out.println("max: "+max);
+        System.out.println("\n -----------------------");
+    }
+
+    public static void Sq_root() {
+        double num=625;
+        double sqroot=Math.sqrt(num);
+        System.out.println("sq root "+num+" = " +sqroot);
+                System.out.println("\n -----------------------");
 
     }
 
+    public static void fibnocci() {
+        int num=10;
+        int a=0;
+        int b=1;
+        int i=1;
+        while (i< num){
+            int c=a+b;
+                a=b;
+                b=c;
+                i++;
+                System.out.println("FIBNOCI SERIES "+a);
+        }
+                System.out.println("\n -----------------------");
+
+    }
+
+    public static void krishnamoorthi_number() {
+        int num=145;
+        int original=num;
+        int sum=0;
+
+        while(num>0){
+            int digit=num%10;
+            int fact=1;
+            for(int i=1;i<=digit;i++){
+                fact=fact*i;
+            }
+            sum+=fact;
+            num/=10;
+        }
+        if(sum==original){
+            System.out.println("krishnamoorthi_number");
+        }
+        else{
+            System.out.println("nooo");
+        }
+                        System.out.println("\n -----------------------");
+
+    }
+
+    public static void perfect_number() {
+        int num=28;
+        int sum=0;
+        for(int i=1; i<num; i++){
+           if(num %i ==0){
+            sum+=i;
+           }
+        }
+        if(num==sum){
+            System.out.println("PERFECT NUM");
+        }
+        else{
+            System.out.println("NOOO");
+        }
+         System.out.println("\n -----------------------");
+    }
+
+    public static void amstrong_num() {
+        int num=153;
+        int sum=0;
+        int amstrong=num;
+
+        while(num!=0){
+            int rem=num%10;
+            sum=sum+(rem*rem*rem);
+            num/=10;
+        }
+        if(sum==amstrong){
+            System.out.println("AMSTRONG NUM");
+        }
+        else{
+            System.out.println("noo");
+        }
+
+         System.out.println("\n -----------------------");
+    }
 }
+
